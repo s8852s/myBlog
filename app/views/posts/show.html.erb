@@ -1,0 +1,18 @@
+<h1>文章標題: <%= @post.title %></h1>
+
+<p>
+    文章內容:
+    <br>
+    <%= @post.content %>
+</p>
+
+<%= link_to "發表留言", new_post_comment_path(@post) %>
+
+<table>
+    <thead>
+
+        <tr>
+            <td></td>
+        </tr>
+    </thead>
+</table>

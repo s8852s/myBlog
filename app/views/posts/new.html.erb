@@ -1,0 +1,14 @@
+<h1>發表新文章</h1>
+
+<%= link_to "返回文章列表", posts_path %>
+
+<%= form_for(@post) do |form| %>
+<%= form.label :title, "文章標題" %>
+<%= form.text_field :title %>
+<br>
+<%= form.label :content, "文章內容" %>
+<%= form.text_area :content %>
+<br>
+
+<%= form.submit %>
+<% end %>

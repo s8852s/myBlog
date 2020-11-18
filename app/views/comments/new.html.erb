@@ -1,0 +1,13 @@
+<h1>發表評論</h1>
+
+<%= link_to "返回文章", posts_path %>
+
+
+<%= form_for(@comment) do |form| %>
+    <%= form.label :content, "評論內容" %>
+    <%= form.text_area :content %>
+    <br>
+    
+    
+    <%= form.submit %>
+    <% end %>
