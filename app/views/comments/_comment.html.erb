@@ -1,0 +1,22 @@
+<table>
+    <thead>
+        <tr>
+            <td>留言內容</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% post.comments.each do |comment| %>
+        <tr>
+            <td><%= comment.content %></td>
+            <td>
+                <%= link_to "編輯留言", edit_post_comment_path(post, comment) %>
+                <%= link_to "刪除留言", post_comment_path(post,comment), 
+                    method: "delete" , 
+                    data:{ confirm: "確定要刪除留言嗎?" } %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+    
+</table>

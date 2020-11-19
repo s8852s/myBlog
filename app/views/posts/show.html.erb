@@ -1,18 +1,29 @@
 <h1>文章標題: <%= @post.title %></h1>
-
+<%= flash[:notice] %>
 <p>
     文章內容:
     <br>
     <%= @post.content %>
 </p>
-
+<%= link_to "編輯文章", edit_post_path(@post) %>
 <%= link_to "發表留言", new_post_comment_path(@post) %>
+<%= link_to "返回文章列表", posts_path %>
 
-<table>
-    <thead>
 
-        <tr>
-            <td></td>
-        </tr>
-    </thead>
-</table>
+<h2>留言</h2>
+<%= render "comments/comment" , post: @post %>
+<!-- render @article.comments  -->
+
+
+<%= form_with(model: [ @post, @post.comments.build ], local: true) do |form| %>
+    <p>
+      <%= form.label :content %><br>
+      <%= form.text_area :content %>
+    </p>
+   
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>
+
+  
